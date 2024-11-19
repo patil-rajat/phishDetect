@@ -10,9 +10,6 @@ This project uses machine learning techniques to detect phishing URLs. The goal 
   - [Installation](#installation)
   - [Usage](#usage)
 - [Model Details](#model-details)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Overview
 
@@ -62,6 +59,24 @@ Follow these steps to set up the project:
 
 ## Model Details
 The machine learning model used for URL classification is XGBoost, a powerful gradient boosting algorithm. It has been trained to analyze features extracted from URLs and classify them into two categories: Phishing and Benign.
-1. **Model Type: XGBoost (Gradient Boosting Model)
-2. **Training Data: A dataset of URLs labeled as either phishing or benign.
-3. **Model Serialization: The trained model is serialized and stored in a .pkl file for easy loading during predictions.
+1. Model Type: XGBoost (Gradient Boosting Model)
+2. Training Data: A dataset of URLs labeled as either phishing or benign.
+3. Model Serialization: The trained model is serialized and stored in a .pkl file for easy loading during predictions.
+
+### URL Features used:
+To extract useful features from the URLs for the machine learning model, the following features were analyzed:
+1. **Domain Extraction:** Extracts the domain from the URL and removes "www" if present.
+2. **IP Address Detection:** Checks if the URL contains an IP address instead of a domain.
+3. **Presence of '@' Sign:** Detects if the URL contains the "@" symbol, often used in phishing URLs.
+4. **URL Length:** Classifies URLs based on their length (greater than 54 characters).
+5. **URL Depth:** Counts the number of path segments in the URL to detect suspicious structures.
+6. **Redirection Check:** Identifies URLs with multiple redirections.
+7. **HTTPS in Domain:** Checks if the domain contains "https" (secure connection).
+8. **Shortening Services Detection:** Detects URLs from known URL shortening services (e.g., bit.ly, goo.gl).
+9. **Prefix and Suffix Detection:** Identifies the presence of hyphens in the domain, which can indicate phishing.
+10. **IFrame Redirection:** Checks for the use of iframe tags that might be used for redirection.
+11. **MouseOver Script Detection:** Looks for custom status bar changes via mouseover events in the HTML.
+12. **Right Click Disable Detection:** Detects if right-click functionality is disabled, a common phishing tactic.
+13. **Website Forwarding:** Checks the URL's history for excessive redirects, indicating potential phishing.
+
+These features help the model classify URLs as **phishing** or **benign** based on their structure, content, and behavior.
