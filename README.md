@@ -59,3 +59,9 @@ Follow these steps to set up the project:
    ```
    cd applicationFlask
    python app.py
+
+## Model Details
+The machine learning model used for URL classification is XGBoost, a powerful gradient boosting algorithm. It has been trained to analyze features extracted from URLs and classify them into two categories: Phishing and Benign.
+1. **Model Type: XGBoost (Gradient Boosting Model)
+2. **Training Data: A dataset of URLs labeled as either phishing or benign.
+3. **Model Serialization: The trained model is serialized and stored in a .pkl file for easy loading during predictions.
