@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1>URL Classifier</h1>
+        </div>
+        <div class="navbar-right">
+            <button id="future-btn-1">Future Button 1</button>
+            <button id="future-btn-2">Future Button 2</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <!-- URL Input Form -->
+        <div class="input-container">
+            <form method="POST" action="/predict">
+                <label for="url">Enter URL:</label><br>
+                <input type="text" id="url" name="url" placeholder="Enter the URL here" required><br><br>
+                <button type="submit" id="classify-btn">Classify URL</button>
+            </form>
+        </div>
+
+        <!-- Displaying the Classification Output -->
+        <div class="output-container">
+            {% if prediction_text %}
+                <h3><strong>Submitted URL:</strong> {{ submitted_url }}</h3>
+                <p><strong>Classification Result:</strong> {{ prediction_text }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Refresh Button -->
+        <div class="refresh-container">
+            <form method="GET" action="/">
+                <button type="submit" id="refresh-btn">Refresh Page</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
