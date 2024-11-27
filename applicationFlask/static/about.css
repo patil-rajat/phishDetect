@@ -1,0 +1,60 @@
+/* General Container Styling */
+.about-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Team Container Styling */
+.team-container {
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 40px; /* Space between cards */
+    flex-wrap: wrap; /* Allow stacking on smaller screens */
+}
+
+/* Team Card Styling */
+.team-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    width: 300px; /* Fixed width for consistency */
+}
+
+/* Profile Image Styling */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Circular shape */
+    object-fit: cover; /* Ensure image fills the circle */
+    border: 2px solid #ddd;
+    margin-bottom: 15px;
+}
+
+/* Member Name */
+.team-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Member Description */
+.team-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}

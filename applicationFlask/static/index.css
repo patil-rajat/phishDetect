@@ -112,6 +112,26 @@ body {
     display: block;
 }
 
+/* VT Analysis Section */
+.vt-analysis-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9f5ff;
+    border: 1px solid #cce5ff;
+    border-radius: 5px;
+}
+
+.vt-analysis-container h3 {
+    font-size: 18px;
+    color: #31708f;
+    font-weight: bold;
+}
+
+.vt-analysis-container p {
+    font-size: 16px;
+    color: #555;
+}
+
 /* Refresh Button Section */
 .refresh-container {
     margin-top: 30px;

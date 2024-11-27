@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Team</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1>PhishDetect</h1>
+        </div>
+        <div class="navbar-right">
+            <a href="/"><button>Home</button></a>
+            <a href="/about"><button id="future-btn-2">About Team</button></a>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="container about-section">
+        <h2>About Our Team</h2>
+        <p>
+            At <strong>PhishDetect</strong>, we are a dedicated two-member team working to make the internet safer by providing tools to detect and avoid phishing attempts. Meet our team:
+        </p>
+
+        <!-- Team Members Section -->
+        <div class="team-container">
+            <!-- Member 1 Card -->
+            <div class="team-card">
+                <!-- <img src="{{ url_for('static', filename='images/p1r.jpg') }}" alt="Member 1 Profile" class="profile-img"> -->
+                <h3>1. Rajat Patil</h3>
+                <p>
+                    A passionate cybersecurity enthusiast with experience in Python, Flask, and machine learning. Rajat leads backend development and machine learning.
+                </p>
+            </div>
+
+            <!-- Member 2 Card -->
+            <div class="team-card">
+                <!-- <img src="{{ url_for('static', filename='images/p2a.jpg') }}" alt="Member 2 Profile" class="profile-img"> -->
+                <h3>2. Akhilesh Poke</h3>
+                <p>
+                    Akhilesh overlooks the frontend development and user experience design, ensuring an intuitive interface for seamless user interaction.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

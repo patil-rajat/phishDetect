@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Classification</title>
+    <title>PhishDetect</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
@@ -11,11 +11,12 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-left">
-            <h1>URL Classifier</h1>
+            <h1>PhishDetect</h1>
         </div>
         <div class="navbar-right">
-            <button id="future-btn-1">Future Button 1</button>
-            <button id="future-btn-2">Future Button 2</button>
+            <!-- <button id="future-btn-1">VirusTotal</button> -->
+            <a href="{{ url_for('home') }}"><button id="future-btn-2">Predict</button></a>
+            <a href="{{ url_for('about') }}"><button id="future-btn-2">About Team</button></a>
         </div>
     </nav>
 
@@ -24,29 +25,46 @@
         <!-- URL Input Form -->
         <div class="input-container">
             <form method="POST" action="/predict">
-                <label for="url">Enter URL:</label><br>
+                <label for="url">To check URL Authenticity</label><br>
                 <input type="text" id="url" name="url" placeholder="Enter the URL here" required><br><br>
                 <button type="submit" id="classify-btn">Classify URL</button>
             </form>
         </div>
 
         <!-- Displaying the Classification Output -->
+        {% if prediction_text %}
         <div class="output-container">
-            {% if prediction_text %}
-                <h3><strong>Submitted URL:</strong> {{ submitted_url }}</h3>
-                <p><strong>Classification Result:</strong> {{ prediction_text }}</p>
-            {% endif %}
-        </div>
+            <!-- Display Submitted URL -->
+            <h3><strong>Submitted URL:</strong> {{ submitted_url }}</h3>
 
-        <!-- Refresh Button -->
-        <div class="refresh-container">
-            <form method="GET" action="/">
-                <button type="submit" id="refresh-btn">Refresh Page</button>
-            </form>
+            <!-- Display Model Prediction -->
+            <p><strong>Classification Result:</strong> {{ prediction_text }}</p>
+            <p><strong>Confidence Score:</strong> {{ confidence_score }}</p>
+            <p><strong>Risk Level:</strong> {{ risk_level_text }}</p>
+
+            <!-- VirusTotal Analysis Section -->
+            <div class="vt-analysis-container">
+                <h3>VirusTotal Analysis:</h3>
+                {% if vt_analysis %}
+                    <ul>
+                        <li><strong>Harmless:</strong> {{ vt_analysis.harmless }}</li>
+                        <li><strong>Malicious:</strong> {{ vt_analysis.malicious }}</li>
+                        <li><strong>Suspicious:</strong> {{ vt_analysis.suspicious }}</li>
+                        <li><strong>Undetected:</strong> {{ vt_analysis.undetected }}</li>
+                    </ul>
+                {% else %}
+                    <p>Unable to retrieve VirusTotal analysis for this URL.</p>
+                {% endif %}
+            </div>
+            <!-- Button to Classify Another URL 
+            <div class="retry-container">
+                <a href="{{ url_for('home') }}">
+                    <button id="retry-btn">Classify Another URL</button>
+                </a>
+            </div> -->
         </div>
+        {% endif %}
+
     </div>
-
-
-
 </body>
 </html>
